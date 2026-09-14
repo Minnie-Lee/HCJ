@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <title>DUGOUT INSIGHTS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #051429;
+      --deep-navy: #030B17;
+      --card-navy: #0B2240;
+      --accent-red: #D90429;
+      --accent-red-hover: #EF233C;
+      --light-bg: #F4F6FA;
+      --text-dark: #1A202C;
+      --text-gray: #718096;
+      --border-color: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    /* Common Top Nav */
+    .top-nav {
+      background-color: var(--primary-navy);
+      color: #ffffff;
+      padding: 18px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .top-nav .logo {
+      font-size: 24px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .top-nav .nav-icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 18px;
+      opacity: 0.85;
+      cursor: pointer;
+    }
+
+    /* ================================================= */
+    /* 1. LANDING PAGE (Screen 1)                        */
+    /* ================================================= */
+    #view-landing {
+      display: block;
+    }
+
+    .hero-section {
+      position: relative;
+      background: linear-gradient(180deg, #030C1A 0%, #082142 50%, #0D2D59 100%);
+      color: #ffffff;
+      padding: 90px 20px 110px 20px;
+      text-align: center;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(26, 86, 160, 0.45) 0%, transparent 60%),
+        linear-gradient(180deg, #030C1A 0%, #0A254A 100%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: var(--accent-red);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: #CBD5E0;
+      max-width: 620px;
+      margin: 0 auto 36px auto;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--accent-red);
+      color: #ffffff;
+      border: none;
+      padding: 16px 36px;
+      font-size: 17px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 18px rgba(217, 4, 41, 0.35);
+    }
+    .btn-start:hover {
+      background-color: var(--accent-red-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 70px 20px 90px 20px;
+      text-align: center;
+    }
+    .benefits-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 10px;
+    }
+    .benefits-subtitle {
+      font-size: 15px;
+      color: var(--text-gray);
+      margin-bottom: 45px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .benefit-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 36px 28px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s;
+    }
+    .benefit-card:hover {
+      transform: translateY(-4px);
+    }
+    .benefit-icon-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .icon-blue { background-color: #EBF4FF; color: #3182CE; }
+    .icon-pink { background-color: #FFF0F2; color: #E53E3E; }
+    .icon-green { background-color: #E6FFFA; color: #319795; }
+
+    .benefit-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1A202C;
+    }
+    .benefit-card p {
+      font-size: 14px;
+      color: #64748B;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-navy);
+      color: #94A3B8;
+      padding: 50px 20px 40px 20px;
+      text-align: center;
+    }
+    footer .footer-logo {
+      font-size: 22px;
+      color: var(--accent-red);
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    footer .footer-links a {
+      color: #94A3B8;
+      text-decoration: none;
+    }
+    footer .copyright {
+      font-size: 12px;
+      color: #64748B;
+      letter-spacing: 0.5px;
+    }
+
+    /* ================================================= */
+    /* 2. SURVEY FORM (Screen 2)                         */
+    /* ================================================= */
+    #view-survey {
+      display: none;
+      padding: 40px 20px 80px 20px;
+    }
+
+    .survey-container {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(5, 20, 41, 0.08);
+      overflow: hidden;
+    }
+
+    .survey-header {
+      padding: 24px 32px;
+      border-bottom: 1px solid #EDF2F7;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .survey-header .category {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #1A202C;
+    }
+    .survey-header .step-count {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #718096;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 4px;
+      background-color: #EDF2F7;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background-color: var(--accent-red);
+      transition: width 0.3s ease;
+    }
+
+    .survey-body {
+      padding: 40px 36px;
+    }
+
+    .question-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0F172A;
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: -0.5px;
+      line-height: 1.4;
+    }
+
+    /* Team Selection Cards Grid (Image 2 style) */
+    .teams-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .team-card {
+      border: 2px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 20px 12px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+      background: #ffffff;
+      user-select: none;
+    }
+    .team-card:hover {
+      border-color: #CBD5E0;
+      transform: translateY(-2px);
+    }
+    .team-card.selected {
+      border-color: #051429;
+      box-shadow: 0 4px 14px rgba(5, 20, 41, 0.12);
+      background-color: #F8FAFC;
+    }
+    .team-card .check-icon {
+      display: none;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 20px;
+      height: 20px;
+      background-color: #051429;
+      color: #ffffff;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: bold;
+      align-items: center;
+      justify-content: center;
+    }
+    .team-card.selected .check-icon {
+      display: flex;
+    }
+    .team-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #F1F5F9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px auto;
+      font-size: 13px;
+      font-weight: 800;
+      color: #334155;
+      letter-spacing: 0.5px;
+    }
+    .team-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1E293B;
+    }
+
+    /* Standard Form Inputs */
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+    .form-group .sub-label {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: normal;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #1E293B;
+      background-color: #FAFAFA;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: #051429;
+      background-color: #ffffff;
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Survey Navigation Footer */
+    .survey-footer {
+      padding: 20px 36px;
+      background-color: #F8FAFC;
+      border-top: 1px solid #EDF2F7;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-prev {
+      background-color: #ffffff;
+      border: 1.5px solid #CBD5E0;
+      color: #334155;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-prev:hover {
+      background-color: #F1F5F9;
+    }
+    .btn-next {
+      background-color: #051429;
+      color: #ffffff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-next:hover {
+      background-color: #030B17;
+    }
+    .btn-next:disabled {
+      background-color: #94A3B8;
+      cursor: not-allowed;
+    }
+
+    /* ================================================= */
+    /* 3. COMPLETION REWARD PAGE (Screen 3)              */
+    /* ================================================= */
+    #view-complete {
+      display: none;
+      padding: 60px 20px 100px 20px;
+      text-align: center;
+    }
+    .complete-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .check-icon-circle {
+      width: 64px;
+      height: 64px;
+      background-color: var(--accent-red);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 24px auto;
+      box-shadow: 0 4px 16px rgba(217, 4, 41, 0.3);
+    }
+    .complete-title {
+      font-size: 28px;
+      font-weight: 900;
+      color: #0F172A;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .complete-desc {
+      font-size: 15px;
+      color: var(--text-gray);
+      margin-bottom: 40px;
+    }
+
+    .reward-cards-row {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 20px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 680px) {
+      .reward-cards-row {
+        grid-template-columns: 1fr;
+      }
+      .teams-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Summary Card */
+    .summary-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    }
+    .summary-card h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #F1F5F9;
+      font-size: 14px;
+    }
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+    .summary-item .label { color: #64748B; }
+    .summary-item .value { font-weight: 700; color: #1E293B; }
+    .summary-item .highlight { color: #2563EB; font-weight: 800; }
+
+    /* Coupon Ticket Card (Image 3 exact replica) */
+    .ticket-card {
+      background: linear-gradient(135deg, #091D3A 0%, #030B17 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      border-bottom: 4px solid var(--accent-red);
+      box-shadow: 0 8px 24px rgba(5, 20, 41, 0.2);
+    }
+    .ticket-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #FFAAA6;
+      background: rgba(217, 4, 41, 0.25);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .ticket-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+    .ticket-value {
+      font-size: 26px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .ticket-meta {
+      font-size: 12px;
+      color: #94A3B8;
+      line-height: 1.5;
+    }
+
+    .ticket-qr-box {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      color: #1E293B;
+      min-width: 140px;
+    }
+    .ticket-qr-code {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+    .ticket-code-text {
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: bold;
+      color: #475569;
+      margin-bottom: 10px;
+    }
+    .btn-coupon {
+      display: block;
+      background: #051429;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .complete-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .btn-home {
+      background: #ffffff;
+      border: 1.5px solid #CBD5E0;
+      color: #1E293B;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-home:hover {
+      background: #F8FAFC;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Nav Bar -->
+  <nav class="top-nav">
+    <a href="#" class="logo brand-logo" onclick="showLanding()">DUGOUT INSIGHTS</a>
+    <div class="nav-icons">
+      <span>👤</span>
+      <span>🔔</span>
+    </div>
+  </nav>
+
+  <!-- ================================================= -->
+  <!-- 1. LANDING VIEW                                   -->
+  <!-- ================================================= -->
+  <section id="view-landing">
+    <div class="hero-section">
+      <div class="hero-badge">OFFICIAL FAN PANEL</div>
+      <h1 class="hero-title">팬들의 목소리를 들려주세요!</h1>
+      <p class="hero-desc">
+        당신의 의견이 야구의 미래를 바꿉니다. 설문에 참여하고 특별한 리워드와 이벤트 당첨의 기회를 잡으세요.
+      </p>
+      <button class="btn-start" onclick="startSurvey()">
+        설문 시작하기 ➔
+      </button>
+    </div>
+
+    <div class="benefits-section">
+      <h2 class="benefits-title">참여 혜택</h2>
+      <p class="benefits-subtitle">설문에 참여해주신 팬 여러분께 드리는 특별한 보상입니다.</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon-circle icon-blue">🏷️</div>
+          <h3>포인트 적립</h3>
+          <p>설문 완료 시 구단 공식 스토어에서 사용 가능한 포인트를 즉시 지급해 드립니다.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon-circle icon-pink">🎉</div>
+          <h3>이벤트 자동 응모</h3>
+          <p>매월 추첨을 통해 선수 친필 사인 유니폼 등 스페셜 굿즈를 선물로 드립니다.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon-circle icon-green">📈</div>
+          <h3>팬 경험 개선</h3>
+          <p>여러분의 소중한 의견은 실제 경기장 서비스와 팬 경험을 개선하는데 직접 반영됩니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-logo brand-logo">DUGOUT INSIGHTS</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Support</a>
+      </div>
+      <div class="copyright">© 2024 DUGOUT INSIGHTS. OFFICIAL FAN PANEL.</div>
+    </footer>
+  </section>
+
+
+  <!-- ================================================= -->
+  <!-- 2. SURVEY MULTI-STEP FORM VIEW                    -->
+  <!-- ================================================= -->
+  <section id="view-survey">
+    <div class="survey-container">
+      <div class="survey-header">
+        <div class="category">FAN PROFILING</div>
+        <div class="step-count" id="step-indicator">Question 1 of 3</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-fill" style="width: 33.3%;"></div>
+      </div>
+
+      <div class="survey-body">
+        
+        <!-- STEP 1: 기본 인적사항 -->
+        <div id="survey-step-1" class="survey-step-content">
+          <h2 class="question-title">팬 패널 프로필을 입력해주세요</h2>
+          <div class="form-group">
+            <label for="input-name">이름</label>
+            <input type="text" id="input-name" class="form-input" placeholder="성함을 입력해주세요" required>
+          </div>
+          <div class="form-group">
+            <label for="input-phone">전화번호</label>
+            <input type="tel" id="input-phone" class="form-input" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+
+        <!-- STEP 2: 응원 구단 및 관람 빈도 (이미지 2 카드 그리드) -->
+        <div id="survey-step-2" class="survey-step-content" style="display: none;">
+          <h2 class="question-title">가장 응원하는 프로야구 팀은 어디인가요?</h2>
+          
+          <div class="teams-grid">
+            <div class="team-card" onclick="selectTeam(this, 'SSG 랜더스')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">SSG</div>
+              <div class="team-name">SSG 랜더스</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, 'LG 트윈스')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">LG</div>
+              <div class="team-name">LG 트윈스</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, '두산 베어스')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">DOOSAN</div>
+              <div class="team-name">두산 베어스</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, '삼성 라이온즈')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">SAMSUNG</div>
+              <div class="team-name">삼성 라이온즈</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, '롯데 자이언츠')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">LOTTE</div>
+              <div class="team-name">롯데 자이언츠</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, 'KIA 타이거즈')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">KIA</div>
+              <div class="team-name">KIA 타이거즈</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, 'KT 위즈')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">KT</div>
+              <div class="team-name">KT 위즈</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, '한화 이글스')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">HANWHA</div>
+              <div class="team-name">한화 이글스</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, '키움 히어로즈')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">KIWOOM</div>
+              <div class="team-name">키움 히어로즈</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, 'NC 다이노스')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">NC</div>
+              <div class="team-name">NC 다이노스</div>
+            </div>
+            <div class="team-card" onclick="selectTeam(this, '해당 없음')">
+              <span class="check-icon">✓</span>
+              <div class="team-badge">NONE</div>
+              <div class="team-name">해당 없음</div>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 24px;">
+            <label for="select-freq">야구를 얼마나 자주 보시나요?</label>
+            <select id="select-freq" class="form-select">
+              <option value="매일 챙겨본다">매일 챙겨본다</option>
+              <option value="주 2~3회 정도 본다">주 2~3회 정도 본다</option>
+              <option value="한 달에 1~2회 정도 본다">한 달에 1~2회 정도 본다</option>
+              <option value="거의 보지 않는다">거의 보지 않는다</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- STEP 3: 정성 의견 작성 -->
+        <div id="survey-step-3" class="survey-step-content" style="display: none;">
+          <h2 class="question-title">팬 여러분의 생생한 목소리를 들려주세요</h2>
+          
+          <div class="form-group">
+            <label for="input-like">좋아하는 이유를 간단하게 적어보세요.</label>
+            <textarea id="input-like" class="form-textarea" placeholder="선수들의 열정, 응원 문화, 직관 분위기 등"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="input-dislike">
+              안보신다면 이유를 말씀해주세요. 
+              <span class="sub-label">(보시는 분들 생략가능)</span>
+            </label>
+            <textarea id="input-dislike" class="form-textarea" placeholder="경기 시간이 길어서, 룰이 복잡해서 등"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="survey-footer">
+        <button type="button" class="btn-prev" id="btn-prev" onclick="prevStep()" style="visibility: hidden;">
+          ← 이전
+        </button>
+        <button type="button" class="btn-next" id="btn-next" onclick="nextStep()">
+          다음 ➔
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================= -->
+  <!-- 3. COMPLETION & REWARD VIEW (Screen 3)            -->
+  <!-- ================================================= -->
+  <section id="view-complete">
+    <div class="complete-container">
+      <div class="check-icon-circle">⚾</div>
+      <h2 class="complete-title">참여해주셔서 감사합니다! 홈런급 소중한 의견입니다!</h2>
+      <p class="complete-desc">팬 여러분의 의견이 모여 더 나은 야구장 문화를 만들어갑니다.</p>
+
+      <div class="reward-cards-row">
+        <!-- Summary Box -->
+        <div class="summary-card">
+          <h4>📊 참여 요약</h4>
+          <div class="summary-item">
+            <span class="label">설문 완료 시간</span>
+            <span class="value">방금 전</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">획득 포인트</span>
+            <span class="value highlight">+ 50 P</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">이번 시즌 참여율</span>
+            <span class="value">100%</span>
+          </div>
+        </div>
+
+        <!-- Special Reward Ticket Box -->
+        <div class="ticket-card">
+          <div>
+            <div class="ticket-badge">★ SPECIAL REWARD</div>
+            <div class="ticket-title">야구장 매점</div>
+            <div class="ticket-value">2,000원 할인권</div>
+            <div class="ticket-meta">
+              유효기간: 2024 시즌 종료시까지 (당일 사용 가능)<br>
+              ⓘ 1인 1매 사용 가능, 일부 매장 제외
+            </div>
+          </div>
+          <div class="ticket-qr-box">
+            <div class="ticket-qr-code">🎟️</div>
+            <div class="ticket-code-text">A9X-2B4-R8Y</div>
+            <a href="#" class="btn-coupon" onclick="alert('쿠폰이 발급되었습니다!'); return false;">쿠폰함 확인하기 ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="complete-actions">
+        <button class="btn-home" onclick="showLanding()">홈으로 돌아가기</button>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    var currentStep = 1;
+    var totalSteps = 3;
+    var selectedTeam = "SSG 랜더스"; // 기본값
+
+    function showLanding() {
+      document.getElementById('view-landing').style.display = 'block';
+      document.getElementById('view-survey').style.display = 'none';
+      document.getElementById('view-complete').style.display = 'none';
+      window.scrollTo(0, 0);
+    }
+
+    function startSurvey() {
+      document.getElementById('view-landing').style.display = 'none';
+      document.getElementById('view-survey').style.display = 'block';
+      document.getElementById('view-complete').style.display = 'none';
+      currentStep = 1;
+      updateStepUI();
+      window.scrollTo(0, 0);
+    }
+
+    function selectTeam(elem, teamName) {
+      var allCards = document.querySelectorAll('.team-card');
+      allCards.forEach(function(card) {
+        card.classList.remove('selected');
+      });
+      elem.classList.add('selected');
+      selectedTeam = teamName;
+    }
+
+    function updateStepUI() {
+      // Step 내용 토글
+      for (var i = 1; i <= totalSteps; i++) {
+        document.getElementById('survey-step-' + i).style.display = (i === currentStep) ? 'block' : 'none';
+      }
+
+      // 인디케이터 및 프로그레스바 갱신
+      document.getElementById('step-indicator').innerText = 'Question ' + currentStep + ' of ' + totalSteps;
+      document.getElementById('progress-fill').style.width = ((currentStep / totalSteps) * 100) + '%';
+
+      // 이전 버튼
+      var prevBtn = document.getElementById('btn-prev');
+      prevBtn.style.visibility = (currentStep === 1) ? 'hidden' : 'visible';
+
+      // 다음 / 완료 버튼
+      var nextBtn = document.getElementById('btn-next');
+      if (currentStep === totalSteps) {
+        nextBtn.innerText = '제출하기 ✓';
+        nextBtn.style.backgroundColor = 'var(--accent-red)';
+      } else {
+        nextBtn.innerText = '다음 ➔';
+        nextBtn.style.backgroundColor = '#051429';
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        currentStep--;
+        updateStepUI();
+      }
+    }
+
+    function nextStep() {
+      // 1단계 검증
+      if (currentStep === 1) {
+        var name = document.getElementById('input-name').value.trim();
+        var phone = document.getElementById('input-phone').value.trim();
+        if (!name || !phone) {
+          alert('이름과 전화번호를 모두 입력해주세요.');
+          return;
+        }
+      }
+
+      // 최종 제출 단계
+      if (currentStep === totalSteps) {
+        submitSurveyData();
+        return;
+      }
+
+      currentStep++;
+      updateStepUI();
+    }
+
+    function submitSurveyData() {
+      var nextBtn = document.getElementById('btn-next');
+      nextBtn.disabled = true;
+      nextBtn.innerText = '제출 중...';
+
+      var formData = {
+        name: document.getElementById('input-name').value,
+        phone: document.getElementById('input-phone').value,
+        frequency: document.getElementById('select-freq').value,
+        team: selectedTeam,
+        reasonLike: document.getElementById('input-like').value,
+        reasonDislike: document.getElementById('input-dislike').value
+      };
+
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function(res) {
+            if (res.success) {
+              onSuccessSubmit();
+            } else {
+              alert('오류가 발생했습니다: ' + res.error);
+              nextBtn.disabled = false;
+              nextBtn.innerText = '제출하기 ✓';
+            }
+          })
+          .withFailureHandler(function(err) {
+            alert('오류가 발생했습니다: ' + err);
+            nextBtn.disabled = false;
+            nextBtn.innerText = '제출하기 ✓';
+          })
+          .saveData(formData);
+      } else {
+        // 로컬 테스트 환경
+        setTimeout(function() {
+          onSuccessSubmit();
+        }, 600);
+      }
+    }
+
+    function onSuccessSubmit() {
+      document.getElementById('view-landing').style.display = 'none';
+      document.getElementById('view-survey').style.display = 'none';
+      document.getElementById('view-complete').style.display = 'block';
+      window.scrollTo(0, 0);
+
+      // 입력 폼 리셋
+      document.getElementById('input-name').value = '';
+      document.getElementById('input-phone').value = '';
+      document.getElementById('input-like').value = '';
+      document.getElementById('input-dislike').value = '';
+      var nextBtn = document.getElementById('btn-next');
+      nextBtn.disabled = false;
+    }
+  </script>
+</body>
+</html>

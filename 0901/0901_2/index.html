@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <style>
+      body {
+        font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+        background-color: #F0F4F8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      
+      .card {
+        background: #ffffff;
+        padding: 40px 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(4, 30, 66, 0.1);
+        width: 100%;
+        max-width: 450px;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        margin-top: 0;
+        color: #041E42;
+        text-align: center;
+        margin-bottom: 28px;
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 700;
+        color: #2C3E50;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .optional-text {
+        font-size: 12px;
+        color: #7F8C8D;
+        font-weight: normal;
+      }
+
+      input[type="text"],
+      input[type="tel"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #E2E8F0;
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-size: 15px;
+        color: #333;
+        outline: none;
+        transition: all 0.3s ease;
+        background-color: #FAFCFF;
+        font-family: inherit;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #041E42;
+        background-color: #FFFFFF;
+      }
+
+      textarea {
+        resize: vertical;
+        height: 90px;
+      }
+
+      button {
+        width: 100%;
+        padding: 16px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-top: 10px;
+      }
+
+      #submit-btn {
+        background-color: #DC0330;
+        color: white;
+        box-shadow: 0 4px 12px rgba(220, 3, 48, 0.2);
+      }
+
+      #submit-btn:hover {
+        background-color: #B80025;
+      }
+
+      #submit-btn:disabled {
+        background-color: #F198A8;
+        cursor: not-allowed;
+        box-shadow: none;
+      }
+
+      #result-message {
+        display: none;
+        text-align: center;
+      }
+
+      .success-text {
+        font-size: 22px;
+        font-weight: 800;
+        color: #041E42;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        padding: 20px 0;
+      }
+
+      #back-btn {
+        background-color: #041E42;
+        color: white;
+      }
+
+      #back-btn:hover {
+        background-color: #021229;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div id="form-container">
+        <h2>야구팬 수요조사 ⚾</h2>
+        <form id="survey-form">
+          
+          <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" id="name" required placeholder="홍길동">
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">전화번호</label>
+            <input type="tel" id="phone" required placeholder="010-0000-0000">
+          </div>
+          
+          <div class="form-group">
+            <label for="frequency">야구를 얼마나 자주 보시나요?</label>
+            <select id="frequency" required>
+              <option value="" disabled selected>선택해주세요</option>
+              <option value="매일 챙겨본다">매일 챙겨본다</option>
+              <option value="주 2~3회 정도 본다">주 2~3회 정도 본다</option>
+              <option value="한 달에 1~2회 정도 본다">한 달에 1~2회 정도 본다</option>
+              <option value="거의 보지 않는다">거의 보지 않는다</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="team">어느 팀 팬이신가요?</label>
+            <select id="team" required>
+              <option value="" disabled selected>선택해주세요 (없으면 '해당 없음')</option>
+              <option value="롯데 자이언츠">롯데 자이언츠</option>
+              <option value="KIA 타이거즈">KIA 타이거즈</option>
+              <option value="삼성 라이온즈">삼성 라이온즈</option>
+              <option value="두산 베어스">두산 베어스</option>
+              <option value="KT 위즈">KT 위즈</option>
+              <option value="SSG 랜더스">SSG 랜더스</option>
+              <option value="NC 다이노스">NC 다이노스</option>
+              <option value="한화 이글스">한화 이글스</option>
+              <option value="키움 히어로즈">키움 히어로즈</option>
+              <option value="LG 트윈스">LG 트윈스</option>
+              <option value="해당 없음">해당 없음</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="reasonLike">좋아하는 이유를 간단하게 적어보세요.</label>
+            <textarea id="reasonLike" placeholder="응원 문화가 좋아서, 특정 선수가 좋아서 등"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="reasonDislike">안보신다면 이유를 말씀해주세요. <span class="optional-text">(보시는 분들 생략가능)</span></label>
+            <textarea id="reasonDislike" placeholder="규칙이 어려워서, 시간이 길어서 등"></textarea>
+          </div>
+          
+          <button type="submit" id="submit-btn">확인</button>
+        </form>
+      </div>
+
+      <div id="result-message">
+        <div class="success-text">
+          설문에 참여해주셔서<br>감사합니다! 🎉
+        </div>
+        <button type="button" id="back-btn">홈으로</button>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('survey-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var submitBtn = document.getElementById('submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.innerText = '제출 중...';
+
+        var formData = {
+          name: document.getElementById('name').value,
+          phone: document.getElementById('phone').value,
+          frequency: document.getElementById('frequency').value,
+          team: document.getElementById('team').value,
+          reasonLike: document.getElementById('reasonLike').value,
+          reasonDislike: document.getElementById('reasonDislike').value
+        };
+
+        google.script.run
+          .withSuccessHandler(function(response) {
+            if (response.success) {
+              document.getElementById('form-container').style.display = 'none';
+              document.getElementById('result-message').style.display = 'block';
+            } else {
+              alert('오류가 발생했습니다: ' + response.error);
+              submitBtn.disabled = false;
+              submitBtn.innerText = '확인';
+            }
+          })
+          .withFailureHandler(function(err) {
+            alert('오류가 발생했습니다: ' + err);
+            submitBtn.disabled = false;
+            submitBtn.innerText = '확인';
+          })
+          .saveData(formData);
+      });
+
+      document.getElementById('back-btn').addEventListener('click', function() {
+        document.getElementById('survey-form').reset();
+        document.getElementById('result-message').style.display = 'none';
+        document.getElementById('form-container').style.display = 'block';
+        
+        var submitBtn = document.getElementById('submit-btn');
+        submitBtn.disabled = false;
+        submitBtn.innerText = '확인';
+      });
+    </script>
+  </body>
+</html>

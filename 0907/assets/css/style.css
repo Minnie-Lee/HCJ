@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   Project: 3박 4일 일본인 대상 부산 여행 일정 웹사이트 (BUSAN TRAVEL GUIDE)
+   Publisher: 10년차 전문 웹 퍼블리셔 & 강사 튜터
+   Description: 시맨틱 구조화, 디자인 시스템 토큰, 반응형 인터랙션 스타일시트
+   Rule: 이모지 완전 배제, 정밀한 SVG 및 타이포그래피 기반 UI
+   ========================================================================== */
+
+/* --------------------------------------------------
+   1. Root Variables & Theme Tokens
+   -------------------------------------------------- */
+:root {
+  --color-primary: #0284c7;        /* Coastal Blue */
+  --color-primary-dark: #0369a1;   /* Deep Ocean */
+  --color-primary-light: #e0f2fe;  /* Wave Mist */
+  --color-secondary: #0f172a;      /* Navy Slate */
+  --color-accent: #0d9488;         /* Marine Teal */
+  --color-bg-light: #f8fafc;       /* Off-White Sand */
+  --color-surface: #ffffff;        /* Pure White Card */
+  --color-border: #e2e8f0;         /* Neutral Border */
+  --color-text-main: #1e293b;      /* Charcoal Text */
+  --color-text-sub: #64748b;       /* Slate Grey */
+  --color-tag-food: #ea580c;       /* Food Tag */
+  --color-tag-spot: #0284c7;       /* Spot Tag */
+  --color-tag-cafe: #8b5cf6;       /* Cafe Tag */
+  --color-tag-hotel: #059669;      /* Hotel Tag */
+
+  --font-family-base: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 20px 25px -5px rgba(2, 132, 199, 0.12), 0 8px 10px -6px rgba(2, 132, 199, 0.08);
+}
+
+/* --------------------------------------------------
+   2. Base & Typography Resets
+   -------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-family-base);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-light);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------
+   3. Custom Components & Interactive States
+   -------------------------------------------------- */
+
+/* Tab Buttons */
+.tab-btn {
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.tab-btn:not(.active):hover {
+  background-color: #f1f5f9;
+  color: var(--color-primary-dark);
+}
+
+/* Course Timeline Cards */
+.timeline-item {
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.timeline-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Timeline Left Indicator Line */
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  left: 1.5rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-primary), #cbd5e1);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .timeline-track::before {
+    left: 1.25rem;
+  }
+}
+
+/* Category Badges */
+.badge-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.badge-food {
+  background-color: #fff7ed;
+  color: var(--color-tag-food);
+  border: 1px solid #ffedd5;
+}
+
+.badge-spot {
+  background-color: #f0f9ff;
+  color: var(--color-tag-spot);
+  border: 1px solid #e0f2fe;
+}
+
+.badge-cafe {
+  background-color: #faf5ff;
+  color: var(--color-tag-cafe);
+  border: 1px solid #f3e8ff;
+}
+
+.badge-hotel {
+  background-color: #ecfdf5;
+  color: var(--color-tag-hotel);
+  border: 1px solid #d1fae5;
+}
+
+/* Japanese Translation Secondary Text */
+.text-ja {
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--color-text-sub);
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+/* Filter Buttons */
+.filter-btn {
+  transition: all var(--transition-fast);
+}
+
+.filter-btn.active {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+}
+
+/* Modal Animation */
+.modal-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  transform: scale(0.95);
+  transition: transform var(--transition-normal);
+}
+
+.modal-backdrop.is-open .modal-content {
+  transform: scale(1);
+}
+
+/* Scroll To Top Button */
+#btn-top {
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+}
+
+#btn-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Clean Print Optimization */
+@media print {
+  header, nav, #btn-top, footer, .filter-nav {
+    display: none !important;
+  }
+  .timeline-item {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}

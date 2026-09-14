@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이정민 | 포트폴리오</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome 아이콘 라이브러리 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 메인 대시보드 (첫 화면) -->
+  <div class="dashboard-container">
+    
+    <!-- 1. 첫 상단 바 & 언어 토글 버튼 -->
+    <div class="top-banner">
+      <!-- 고급스러운 지구본 아이콘 언어 전환 버튼 -->
+      <button class="lang-toggle-btn" onclick="toggleLanguage()" aria-label="Language Switch">
+        <i class="fa-solid fa-globe"></i>
+        <span id="current-lang-text">JP</span>
+      </button>
+
+      <h1 class="main-title" data-kr="포트폴리오" data-jp="ポートフォリオ">ポートフォリオ</h1>
+      <p class="hero-intro">
+        <span class="lang-text" 
+              data-kr="안녕하세요! 데이터 기반의 문제 해결력과<br>사용자 중심의 웹 구현력을 갖춘 개발자 <span>이정민</span>입니다." 
+              data-jp="初めまして！データに基づいた問題解決力と、<br>ユーザー中心のWeb実装力を備えたエンジニアの <span>イ・ジョンミン</span> です。">
+          初めまして！データに基づいた問題解決力과、<br>ユーザー中心のWeb実装力を備えたエンジニアの <span>イ・ジョンミン</span> です。
+        </span>
+      </p>
+      <p class="hero-desc" data-kr="궁금하신 항목의 카드를 클릭해서 확인해보세요 :)" data-jp="気になる項目のカードをクリックしてご確認ください :)">気になる項目のカードをクリックしてご確認ください :)</p>
+    </div>
+
+    <!-- 2. 3x2 아이콘 카드 그리드 -->
+    <div class="quick-icon-grid">
+      <div class="icon-card" onclick="openModal('modal-info')">
+        <i class="fa-solid fa-user"></i>
+        <span data-kr="1. 기본정보" data-jp="1. 基本情報">1. 基本情報</span>
+      </div>
+      <div class="icon-card" onclick="openModal('modal-personality')">
+        <i class="fa-solid fa-heart"></i>
+        <span data-kr="2. 성격 & MBTI" data-jp="2. 性格 & MBTI">2. 性格 & MBTI</span>
+      </div>
+      <div class="icon-card" onclick="openModal('modal-skills')">
+        <i class="fa-solid fa-code"></i>
+        <span data-kr="3. 기술스택" data-jp="3. スキルセット">3. スキルセット</span>
+      </div>
+      <div class="icon-card" onclick="openModal('modal-career')">
+        <i class="fa-solid fa-briefcase"></i>
+        <span data-kr="4. 경력 & 자격증" data-jp="4. 経歴 & 資格">4. 経歴 & 資格</span>
+      </div>
+      <div class="icon-card" onclick="openModal('modal-hobby')">
+        <i class="fa-solid fa-gamepad"></i>
+        <span data-kr="5. 취미" data-jp="5. 趣味">5. 趣味</span>
+      </div>
+      <div class="icon-card" onclick="openModal('modal-contact')">
+        <i class="fa-solid fa-envelope"></i>
+        <span data-kr="6. 연락처" data-jp="6. お問い合わせ">6. お問い合わせ</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= 팝업 모달 영역 ================= -->
+
+  <!-- 1. 基本情報 모달 -->
+  <div id="modal-info" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal-info')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-info')">&times;</span>
+      <h2><i class="fa-solid fa-user"></i> <span data-kr="1. 기본정보" data-jp="1. 基本情報">1. 基本情報</span></h2>
+      <div class="profile-container">
+        <img src="1.jpg" alt="프로필 사진" class="profile-img">
+        <div class="info-list">
+          <p><strong data-kr="이름:" data-jp="名前:">名前:</strong> <span data-kr="이정민" data-jp="イ・ジョンミン (Jeongmin Lee)">イ・ジョンミン (Jeongmin Lee)</span></p>
+          <p><strong data-kr="성별:" data-jp="性別:">性別:</strong> <span data-kr="여성" data-jp="女性">女性</span></p>
+          <p><strong data-kr="생년월일:" data-jp="生年月日:">生年月日:</strong> <span data-kr="2002년 11월 5일" data-jp="2002年 11月 5日">2002年 11月 5日</span></p>
+          <p><strong data-kr="나이:" data-jp="年齢:">年齢:</strong> <span data-kr="23세" data-jp="23歳">23歳</span></p>
+          <p><strong data-kr="거주지:" data-jp="거주지:" data-jp="居住地:">居住地:</strong> <span data-kr="대한민국 부산광역시" data-jp="韓国 釜山広域市 釜山鎮区">韓国 釜山広域市 釜山鎮区</span></p>
+          <p>
+            <strong data-kr="출신학과:" data-jp="出身学科:">出身学科:</strong> 
+            <span data-kr="산업경영공학과" data-jp="産業経営工学科">産業経営工学科</span>
+            <a href="https://kscms.ks.ac.kr/inme/Main.do" target="_blank" class="link-btn">
+              <span data-kr="학과 웹사이트" data-jp="学科ウェブサイト">学科ウェブサイト</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 性格 & MBTI 모달 -->
+  <div id="modal-personality" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal-personality')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-personality')">&times;</span>
+      <h2><i class="fa-solid fa-heart"></i> <span data-kr="2. 성격 & MBTI" data-jp="2. 性格 & MBTI">2. 性格 & MBTI</span></h2>
+      <div class="mbti-container">
+        <div class="mbti-card">
+          <img src="intp.png" alt="INTP 아이콘" class="mbti-img">
+          <div class="mbti-badge">INTP</div>
+        </div>
+        <div class="personality-details">
+          <div class="traits-box strength">
+            <h3><i class="fa-solid fa-plus-circle"></i> <span data-kr="장점 (Strengths)" data-jp="長所 (Strengths)">長所 (Strengths)</span></h3>
+            <ul>
+              <li data-kr="논리적이고 체계적인 분석력으로 문제의 근본 원인을 신속하게 파악합니다." data-jp="論理的かつ体系的な分析力で、問題の根本原因を迅速に把握します。">論理的かつ体系的な分析力で、問題の根本原因を迅速に把握します。</li>
+              <li data-kr="새로운 기술과 도구를 빠르게 습득하고 구조화하는 데 강점이 있습니다." data-jp="新しい技術やツールを素早く習得し、構造化することを得意としています。">新しい技術やツールを素早く習得し、構造化することを得意としています。</li>
+            </ul>
+          </div>
+          <div class="traits-box weakness">
+            <h3><i class="fa-solid fa-minus-circle"></i> <span data-kr="단점 (Weaknesses)" data-jp="短所 (Weaknesses)">短所 (Weaknesses)</span></h3>
+            <ul>
+              <li data-kr="신중한 성격으로 의사결정에 시간이 걸릴 수 있으나, 명확한 기준을 세워 보완하고 있습니다." data-jp="慎重すぎる面があり意志決定に時間がかかることがありますが、明確な基準を設けて補っています。">慎重すぎる面があり意志決定に時間がかかることがありますが、明確な基準を設けて補っています。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. スキルセット 모달 -->
+  <div id="modal-skills" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal-skills')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-skills')">&times;</span>
+      <h2><i class="fa-solid fa-code"></i> <span data-kr="3. 기술스택" data-jp="3. スキルセット">3. スキルセット</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fa-solid fa-database skill-icon"></i>
+          <h3>SQL</h3>
+          <p data-kr="데이터 추출·전처리 및 DB 관리" data-jp="データ抽出・前処理およびDB管理">データ抽出・前処理およびDB管理</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-python skill-icon"></i>
+          <h3>Python</h3>
+          <p data-kr="데이터 분석·시각화·로직 구현" data-jp="データ分析・可視化・ロジック実装">データ分析・可視化・ロジック実装</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-html5 skill-icon"></i>
+          <h3>HTML</h3>
+          <p data-kr="웹 표준 준수 구조화 마크업" data-jp="Web標準に準拠した構造化マークアップ">Web標準に準拠した構造化マークアップ</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-css3-alt skill-icon"></i>
+          <h3>CSS</h3>
+          <p data-kr="반응형 디자인 및 스타일링" data-jp="レスポンシブデザインおよびスタイリング">レスポンシブデザインおよびスタイリング</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 経歴 & 資格 모달 -->
+  <div id="modal-career" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal-career')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-career')">&times;</span>
+      <h2><i class="fa-solid fa-briefcase"></i> <span data-kr="4. 경력 & 자격증" data-jp="4. 経歴 & 資格">4. 経歴 & 資格</span></h2>
+      <div class="timeline-item">
+        <span class="date-badge" data-kr="직무경력 · 활동" data-jp="職務経歴・活動">職務経歴・活動</span>
+        <h3 data-kr="주요 프로젝트 및 경력" data-jp="主なプロジェクトおよび経歴">主なプロジェクトおよび経歴</h3>
+        <p data-kr="프로젝트 수행 내용 및 업무 경험을 작성해주세요." data-jp="プロジェクト遂行内容や業務経験を記述してください。">プロジェクト遂行内容や業務経験を記述してください。</p>
+      </div>
+      <div class="timeline-item">
+        <span class="date-badge" data-kr="보유 자격증" data-jp="保有資格">保有資格</span>
+        <h3 data-kr="취득 자격증 목록" data-jp="取得資格一覧">取得資格一覧</h3>
+        <p data-kr="취득한 자격증 정보를 작성해주세요." data-jp="取得した資格情報を記述してください。">取得した資格情報を記述してください。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 趣味 모달 -->
+  <div id="modal-hobby" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal-hobby')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-hobby')">&times;</span>
+      <h2><i class="fa-solid fa-gamepad"></i> <span data-kr="5. 취미" data-jp="5. 趣味">5. 趣味</span></h2>
+      <div class="hobby-tags">
+        <div class="hobby-card"><i class="fa-solid fa-baseball-bat-ball"></i> <span data-kr="야구 (Baseball)" data-jp="野球 (Baseball)">野球 (Baseball)</span></div>
+        <div class="hobby-card"><i class="fa-solid fa-music"></i> <span>J-Pop</span></div>
+        <div class="hobby-card"><i class="fa-solid fa-headset"></i> <span data-kr="게임 (Gaming)" data-jp="ゲーム (Gaming)">ゲーム (Gaming)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. お問い合わせ 모달 -->
+  <div id="modal-contact" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal-contact')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-contact')">&times;</span>
+      <h2><i class="fa-solid fa-envelope"></i> <span data-kr="6. 연락처" data-jp="6. お問い合わせ">6. お問い合わせ</span></h2>
+      <div class="contact-links">
+        <a href="https://instagram.com/j_minni_e" target="_blank" class="contact-btn insta"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="https://blog.naver.com/minn_02_" target="_blank" class="contact-btn blog"><i class="fa-solid fa-blog"></i> Naver Blog</a>
+        <a href="tel:010-0000-0000" class="contact-btn phone"><i class="fa-solid fa-phone"></i> <span data-kr="전화번호" data-jp="電話番号">電話番号</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 자바스크립트 (모달 제어 + 지구본 토글 언어 변환 로직) -->
+  <script>
+    // 1. 모달 팝업 제어
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+    function closeModalOnOuterClick(event, id) {
+      if (event.target.id === id) {
+        closeModal(id);
+      }
+    }
+
+    // 2. 지구본 아이콘 기반 한/일 토글 언어 변환 로직
+    let currentLang = 'jp';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'jp' ? 'kr' : 'jp';
+      
+      // 버튼 안의 텍스트 변경 (JP <-> KR)
+      document.getElementById('current-lang-text').innerText = currentLang.toUpperCase();
+
+      // data-kr, data-jp 속성을 가진 요소 텍스트 일괄 전환
+      const elements = document.querySelectorAll('[data-kr][data-jp]');
+      elements.forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+      });
+    }
+  </script>
+</body>
+</html>
